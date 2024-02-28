@@ -26,9 +26,9 @@ ___Obs.: A aplicação estará disponível no endereço http://localhost:3001___
 |-|-|
 | Executar o projeto (Development) | `make run` |
 | Buildar (Production) | `make setup.prod` |
-| Executar o projeto (Production) | `make setup.prod` |
-| Acessar o console da API | `make bash` |
-| Acessar logs da API | `make logs` |
+| Executar o projeto (Production) | `make run.prod` |
+| Acessar o console do container da API | `make bash` |
+| Acessar logs do container da API | `make logs` |
 | Remover TODOS os containers/volumes/redes | `make clean` |
 
 ## Endpoints
