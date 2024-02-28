@@ -1,7 +1,7 @@
 # Abiscoitado
 ![2150688019](https://github.com/davide-almeida/abiscoitado/assets/85287720/37fb621d-3f62-4d25-b5e9-21d6e697d835)
 
-Este projeto é uma API com um CRUD de clientes e estou desenvolvendo para aprender sobre prometheus, grafana e kubernetes. Então não se surpreenda, pode ser que tudo esteja quebrado e esfarelando como na imagem acima.
+Este projeto é uma API com um CRUD de clientes e estou desenvolvendo para aprender sobre prometheus, grafana e kubernetes. Então não se surpreenda, pode ser que tudo esteja quebrando e esfarelando como na imagem acima.
 
 ## Stack
 - Ruby 3.3
@@ -24,7 +24,9 @@ ___Obs.: A aplicação estará disponível no endereço http://localhost:3001___
 ## Comandos disponíveis
 | Descrição | Comando |
 |-|-|
-| Executar o projeto | `make run` |
+| Executar o projeto (Development) | `make run` |
+| Buildar (Production) | `make setup.prod` |
+| Executar o projeto (Production) | `make setup.prod` |
 | Acessar o console da API | `make bash` |
 | Acessar logs da API | `make logs` |
 | Remover TODOS os containers/volumes/redes | `make clean` |
