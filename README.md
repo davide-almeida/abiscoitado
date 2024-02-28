@@ -19,6 +19,7 @@ Este projeto é uma API com um CRUD de clientes e estou desenvolvendo para apren
 ```bash
 make run
 ```
+___Obs.: A aplicação estará disponível no endereço http://localhost:3001___
 
 ## Comandos disponíveis
 | Descrição | Comando |
@@ -28,7 +29,11 @@ make run
 | Acessar logs da API | `make logs` |
 | Remover TODOS os containers/volumes/redes | `make clean` |
 
-## Rotas
-| Rota | Descrição |
-|-|-|
-| http://localhost:3001 | - |
+## Endpoints
+| Path | HTTP Verb | Descrição |
+|-|-|-|
+| /clients | GET | Listar todos os clientes |
+| /client/:id | GET | Listar um cliente específico |
+| /clients | POST | Cadastra um cliente |
+| /client/:id | PUT | Edita um cliente |
+| /client/:id | DELETE | Deleta um cliente |
