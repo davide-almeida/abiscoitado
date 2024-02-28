@@ -15,12 +15,12 @@ class ClientsController < Sinatra::Base
     @clients.to_json
   end
 
-  # GET /client/:id
-  get '/client/:id/' do
-    redirect '/client/:id'
+  # GET /clients/:id
+  get '/clients/:id/' do
+    redirect '/clients/:id'
   end
 
-  get '/client/:id' do
+  get '/clients/:id' do
     @client = Client.find(params[:id])
 
     halt 404, { 'error' => 'Client not found' }.to_json unless @client.any?
@@ -46,12 +46,12 @@ class ClientsController < Sinatra::Base
     { 'success' => 'Client created' }.to_json
   end
 
-  # PUT /client/:id
-  put '/client/:id/' do
-    redirect '/client/:id'
+  # PUT /clients/:id
+  put '/clients/:id/' do
+    redirect '/clients/:id'
   end
 
-  put '/client/:id' do
+  put '/clients/:id' do
     @client = JSON.parse(request.body.read, symbolize_names: true)
 
     halt 404, { 'error' => 'Client not found' }.to_json unless Client.find(params[:id]).any?
@@ -67,12 +67,12 @@ class ClientsController < Sinatra::Base
     { 'success' => 'Client updated' }.to_json
   end
 
-  # DELETE /client/:id
-  delete '/client/:id/' do
-    redirect '/client/:id'
+  # DELETE /clients/:id
+  delete '/clients/:id/' do
+    redirect '/clients/:id'
   end
 
-  delete '/client/:id' do
+  delete '/clients/:id' do
     @client = Client.delete(params[:id])
 
     halt 404, { 'error' => 'Client not found' }.to_json unless @client.cmd_tuples.positive?
