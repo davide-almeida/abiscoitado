@@ -17,3 +17,6 @@ clean:
 
 setup.prod:
 	@docker build -t ghcr.io/davide-almeida/abiscoitado --target production .
+
+run.prod:
+	@docker compose -f docker-compose-prod.yml up
