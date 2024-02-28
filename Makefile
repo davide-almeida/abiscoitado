@@ -14,3 +14,6 @@ clean:
 	@docker compose down
 	@docker system prune --volumes --force
 	@docker network prune
+
+setup.prod:
+	@docker build -t ghcr.io/davide-almeida/abiscoitado --target production .
