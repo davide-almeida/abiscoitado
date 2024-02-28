@@ -1,7 +1,7 @@
 # Abiscoitado
 ![2150688019](https://github.com/davide-almeida/abiscoitado/assets/85287720/37fb621d-3f62-4d25-b5e9-21d6e697d835)
 
-Este projeto é uma API com um CRUD de clientes e estou desenvolvendo para aprender sobre prometheus, grafana e kubernetes.
+Este projeto é uma API com um CRUD de clientes e estou desenvolvendo para aprender sobre prometheus, grafana e kubernetes. Então não se surpreenda, pode ser que tudo esteja quebrado e esfarelando como na imagem acima.
 
 ## Stack
 - Ruby 3.3
