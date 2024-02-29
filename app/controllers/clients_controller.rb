@@ -2,12 +2,14 @@ require './app/models/client'
 require 'json'
 
 class ClientsController < Sinatra::Base
-  # GET /clients
-  get '/clients/' do
-    redirect '/clients'
+  # GET /api/v1/clients
+  get '/api/v1/clients/' do
+    redirect '/api/v1/clients'
   end
 
-  get '/clients' do
+  get '/api/v1/clients' do
+    Yabeda.abiscoitado.request_counter.increment({endpoint: 'clients'}, by: 1)
+
     @clients = Client.all
 
     content_type :json
@@ -15,14 +17,17 @@ class ClientsController < Sinatra::Base
     @clients.to_json
   end
 
-  # GET /clients/:id
-  get '/clients/:id/' do
-    redirect '/clients/:id'
+  # GET /api/v1/clients/:id
+  get '/api/v1/clients/:id/' do
+    redirect '/api/v1/clients/:id'
   end
 
-  get '/clients/:id' do
+  get '/api/v1/clients/:id' do
+    Yabeda.abiscoitado.request_counter.increment({endpoint: "clients/#{params[:id]}"}, by: 1)
+
     @client = Client.find(params[:id])
 
+    MetricsController::ERRORS_COUNTER.increment unless @client.any?
     halt 404, { 'error' => 'Client not found' }.to_json unless @client.any?
 
     content_type :json
@@ -30,8 +35,10 @@ class ClientsController < Sinatra::Base
     @client.to_json
   end
 
-  # POST /clients
-  post '/clients' do
+  # POST /api/v1/clients
+  post '/api/v1/clients' do
+    Yabeda.abiscoitado.request_counter.increment({endpoint: "create_client"}, by: 1)
+
     @client = JSON.parse(request.body.read, symbolize_names: true)
 
     halt 400, { 'error' => 'JSON required' }.to_json unless request.content_type == 'application/json'
@@ -46,12 +53,12 @@ class ClientsController < Sinatra::Base
     { 'success' => 'Client created' }.to_json
   end
 
-  # PUT /clients/:id
-  put '/clients/:id/' do
-    redirect '/clients/:id'
+  # PUT /api/v1/clients/:id
+  put '/api/v1/clients/:id/' do
+    redirect 'api/v1/clients/:id'
   end
 
-  put '/clients/:id' do
+  put '/api/v1/clients/:id' do
     @client = JSON.parse(request.body.read, symbolize_names: true)
 
     halt 404, { 'error' => 'Client not found' }.to_json unless Client.find(params[:id]).any?
@@ -67,12 +74,12 @@ class ClientsController < Sinatra::Base
     { 'success' => 'Client updated' }.to_json
   end
 
-  # DELETE /clients/:id
-  delete '/clients/:id/' do
-    redirect '/clients/:id'
+  # DELETE /api/v1/clients/:id
+  delete '/api/v1/clients/:id/' do
+    redirect 'api/v1/clients/:id'
   end
 
-  delete '/clients/:id' do
+  delete '/api/v1/clients/:id' do
     @client = Client.delete(params[:id])
 
     halt 404, { 'error' => 'Client not found' }.to_json unless @client.cmd_tuples.positive?
