@@ -9,6 +9,8 @@ Este projeto é uma API com um CRUD de clientes e estou desenvolvendo para apren
 - PostgreSql
 - Docker
 - Nginx
+- Prometheus
+- Grafana
 
 ## Requisitos
 - Docker
