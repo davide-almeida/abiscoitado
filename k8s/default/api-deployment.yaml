@@ -14,7 +14,8 @@ spec:
     spec:
       containers:
       - name: api
-        image: "ghcr.io/davide-almeida/abiscoitado:latest"
+        image: ghcr.io/davide-almeida/abiscoitado:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 3001
         envFrom:
