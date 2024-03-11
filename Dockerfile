@@ -5,5 +5,5 @@ FROM base AS production
 COPY Gemfile Gemfile.lock ./
 RUN bundle install
 COPY . .
-EXPOSE 3001
-CMD ["ruby", "server.rb", "-o", "0.0.0.0", "-p", "3001"]
+EXPOSE 3000
+CMD ["rackup", "-o", "0.0.0.0", "-p", "3000"]
