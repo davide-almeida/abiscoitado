@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: abiscoitado-api
+  template:
+    metadata:
+      labels:
+        app: abiscoitado-api
+    spec:
+      containers:
+      - name: api
+        image: "ghcr.io/davide-almeida/abiscoitado:latest"
+        ports:
+        - containerPort: 3001
+        envFrom:
+        - configMapRef:
+            name: abiscoitado-configmap

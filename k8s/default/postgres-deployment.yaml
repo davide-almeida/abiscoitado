@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postgres-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: abiscoitado-postgres
+  template:
+    metadata:
+      labels:
+        app: abiscoitado-postgres
+    spec:
+      containers:
+      - name: postgres
+        image: postgres:16.2
+        envFrom:
+        - configMapRef:
+            name: abiscoitado-configmap
+        ports:
+        - containerPort: 5432
