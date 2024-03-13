@@ -17,7 +17,7 @@ spec:
         image: ghcr.io/davide-almeida/abiscoitado:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 3001
-        envFrom:
-        - configMapRef:
-            name: abiscoitado-configmap
+        - containerPort: 3000
+        # envFrom:
+        # - configMapRef:
+        #     name: configmap
