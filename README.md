@@ -17,6 +17,7 @@ Este projeto é uma API com um CRUD de clientes e estou desenvolvendo para apren
 - Docker
 - Docker compose
 - Make
+- Kubernetes
 
 ## Como executar o projeto SEM kubernetes
 ```bash
