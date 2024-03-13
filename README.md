@@ -11,17 +11,25 @@ Este projeto é uma API com um CRUD de clientes e estou desenvolvendo para apren
 - Nginx
 - Prometheus
 - Grafana
+- Kubernetes
 
 ## Requisitos
 - Docker
 - Docker compose
 - Make
 
-## Como executar o projeto
+## Como executar o projeto SEM kubernetes
 ```bash
 make run
 ```
 ___Obs.: A aplicação estará disponível no endereço http://localhost:3001___
+
+## Como executar o projeto COM kubernetes
+```bash
+make k8s.apply
+make k8s.port-forward
+```
+___Obs.: A aplicação estará disponível no endereço http://localhost:8080___
 
 ## Comandos disponíveis
 | Descrição | Comando |
@@ -32,6 +40,13 @@ ___Obs.: A aplicação estará disponível no endereço http://localhost:3001___
 | Acessar o console do container da API | `make bash` |
 | Acessar logs do container da API | `make logs` |
 | Remover TODOS os containers/volumes/redes | `make clean` |
+
+## Comandos kubernetes
+| Descrição | Comando |
+|-|-|
+| Aplicar todos os YML's do kubernetes | `make k8s.apply` |
+| Deletar todos os services/deployments/pods do kubernetes | `make k8s.delete` |
+| Criar a conexão com pod do nginx | `make k8s.port-forward` |
 
 ## Endpoints
 | Path | HTTP Verb | Descrição |
