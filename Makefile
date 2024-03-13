@@ -47,3 +47,22 @@ clients.delete:
 	else \
 		curl -X DELETE localhost:3001/api/v1/clients/$(ID); \
 	fi
+
+k8s.apply:
+	@kubectl apply -f k8s/default/api-deployment.yaml
+	@kubectl apply -f k8s/default/configmap.yaml
+	@kubectl apply -f k8s/default/api-service.yaml
+	@kubectl apply -f k8s/default/nginx-deployment.yaml
+	@kubectl apply -f k8s/default/nginx-service.yaml
+	@kubectl apply -f k8s/default/nginx-configmap.yaml
+
+k8s.delete:
+	@kubectl delete -f k8s/default/api-deployment.yaml
+	@kubectl delete -f k8s/default/configmap.yaml
+	@kubectl delete -f k8s/default/api-service.yaml
+	@kubectl delete -f k8s/default/nginx-deployment.yaml
+	@kubectl delete -f k8s/default/nginx-service.yaml
+	@kubectl delete -f k8s/default/nginx-configmap.yaml
+
+k8s.port-forward:
+	@kubectl port-forward svc/abiscoitado-nginx-service 8080:8080
